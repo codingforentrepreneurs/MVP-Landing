@@ -25,6 +25,9 @@ SECRET_KEY = 're=&$*@*%^3qe5&o(e+^vgz8@aws@+_)e=s36cux4jet$j=yh-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+MY_VAR = "this_is_awesome"
+API_KEY = os.environ.get("THIS_API_KEY")
+
 ALLOWED_HOSTS = []
 
 
