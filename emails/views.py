@@ -3,6 +3,8 @@ from django.http import HttpResponse
 # Create your views here.
 # Model -> View -> Template
 
+from .models import EmailEntry
+
 def email_entry_get_view(request, *args, **kwargs):
     # get a single item stored in the database
     obj = EmailEntry.objects.get(id=1)
