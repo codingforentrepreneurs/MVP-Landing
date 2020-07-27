@@ -1,3 +1,6 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
+
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 # Create your views here.
@@ -10,10 +13,14 @@ from .models import EmailEntry
 
 html_str = "<!doctype html><html><body><h1>{email}</body></html>"
 
+# @login_required
+@staff_member_required(login_url='/login')
 def email_entry_get_view(request, id=None, *args, **kwargs):
     # get a single item stored in the database
     # print(args, kwargs)
     # obj = EmailEntry.objects.get(id=id)
+    # if not request.user.is_staff:
+    #     return render(request, "not-allowed.html")
     try:
         obj = EmailEntry.objects.get(id=id)
     except EmailEntry.DoesNotExist:
