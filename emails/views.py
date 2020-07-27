@@ -7,7 +7,7 @@ from django.http import HttpResponse, Http404
 # Model -> View -> Template
 # Model -> View -> React.js / Vue.js
 
-from .forms import EmailEntryForm
+from .forms import EmailEntryForm, EmailEntryUpdateForm
 from .models import EmailEntry
 
 
@@ -68,8 +68,19 @@ def email_entry_list_view(request, id=None, *args, **kwargs):
     return render(request, "emails/list.html", {"object_list": qs})
 
 
-# def email_entry_update_view():
-#     return
+@staff_member_required(login_url='/login')
+def email_entry_update_view(request, id=None, *args, **kwargs):
+    try:
+        obj = EmailEntry.objects.get(id=id)
+    except EmailEntry.DoesNotExist:
+        raise Http404
+    form = EmailEntryUpdateForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        updated_obj = form.save()
+        return redirect(f"/email/{updated_obj.id}")
+    return render(request, "emails/update.html", {'object': obj, "form": form })
+
+
 
 @staff_member_required(login_url='/login')
 def email_entry_destroy_view(request, id=None, *args, **kwargs):

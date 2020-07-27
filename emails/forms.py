@@ -2,6 +2,14 @@ from django import forms
 
 from .models import EmailEntry
 
+
+
+class EmailEntryUpdateForm(forms.ModelForm):
+    class Meta:
+        model = EmailEntry
+        fields = ['name', 'bio', 'email']
+
+
 class EmailEntryForm(forms.ModelForm):
     class Meta:
         model = EmailEntry

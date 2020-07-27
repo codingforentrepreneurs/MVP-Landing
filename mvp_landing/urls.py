@@ -30,13 +30,15 @@ from emails.views import (
     email_entry_get_view,
     email_entry_create_view,
     email_entry_list_view,
-    email_entry_destroy_view
+    email_entry_destroy_view,
+    email_entry_update_view
 )
 
 urlpatterns = [
     path('', email_entry_create_view),
     path('email/', email_entry_list_view),
     path('email/<int:id>/', email_entry_get_view),
+    path('email/<int:id>/update/', email_entry_update_view),
     path('email/<int:id>/destroy/', email_entry_destroy_view),
     path('login/', login_view),
     path('logout/', logout_view),
