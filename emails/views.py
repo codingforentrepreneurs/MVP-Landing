@@ -26,6 +26,7 @@ def email_entry_get_view(request, id=None, *args, **kwargs):
 #     return
 
 def email_entry_create_view(request, *args, **kwargs):
+    print(request.user, request.user.is_authenticated) # is_authenticated()
     # if request.method == "POST":
     #        DONT DO THIS!
     #     print(dict(request.POST))

@@ -21,6 +21,11 @@ from django.conf.urls.static import static
 
 from django.urls import path, re_path
 
+from accounts.views import (
+    login_view,
+    logout_view,
+    register_view,
+)
 from emails.views import (
     email_entry_get_view,
     email_entry_create_view
@@ -29,6 +34,9 @@ from emails.views import (
 urlpatterns = [
     path('', email_entry_create_view),
     path('email/<int:id>/', email_entry_get_view),
+    path('login/', login_view),
+    path('logout/', logout_view),
+    path('register/', register_view),
     # re_path(r'email/(?P<id>\d+)/$', email_entry_get_view),
     # url(r'email/(?P<id>\d+)/$', email_entry_get_view)
     path('admin/', admin.site.urls),
