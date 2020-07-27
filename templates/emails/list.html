@@ -1,0 +1,6 @@
+{% for object in object_list %}
+    <li><a href='/email/{{ object.id }}/'>{{ object.id }} - {{ object.email }}</a>
+    
+        <a href='/email/{{ object.id }}/destroy/'>Destroy</a>
+    </li>
+{% endfor %}

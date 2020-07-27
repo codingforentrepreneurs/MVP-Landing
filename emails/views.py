@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 # Create your views here.
 # Model -> View -> Template
@@ -29,8 +29,7 @@ def email_entry_get_view(request, id=None, *args, **kwargs):
     # return HttpResponse(f"<h1>Hello {obj.email}</h1>")
     return render(request, "get.html", {"object": obj, "email": "abc@gmail.com"})
 
-# def email_entry_list_view():
-#     return
+
 
 def email_entry_create_view(request, *args, **kwargs):
     context = {}
@@ -61,8 +60,25 @@ def email_entry_create_view(request, *args, **kwargs):
         # return HttpResponseRedirect(f"/email/{new_id}")
     return render(request, "form.html", context)
 
+
+
+@staff_member_required(login_url='/login')
+def email_entry_list_view(request, id=None, *args, **kwargs):
+    qs = EmailEntry.objects.all() # .filter(email__icontains='abc')
+    return render(request, "emails/list.html", {"object_list": qs})
+
+
 # def email_entry_update_view():
 #     return
 
-# def email_entry_destroy_view():
-#     return
+@staff_member_required(login_url='/login')
+def email_entry_destroy_view(request, id=None, *args, **kwargs):
+    try:
+        obj = EmailEntry.objects.get(id=id)
+    except EmailEntry.DoesNotExist:
+        raise Http404
+    if request.method == "POST":
+        # field_1 == "delete me"
+        obj.delete()
+        return redirect("/")
+    return render(request, "emails/destroy.html", {"object": obj})
