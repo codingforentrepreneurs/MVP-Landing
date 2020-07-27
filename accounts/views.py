@@ -20,6 +20,7 @@ def login_view(request):
         # verify valid username / password
         user = authenticate(username=username, password=password)
         if user == None:
+            print("user is invalid")
             # later add a message
             return redirect("/login")
         # perform login
@@ -33,4 +34,14 @@ def login_view(request):
 
 def register_view(request):
     form = RegisterForm(request.POST or None)
-    return render(request, "accounts/register.html", {})
+    if form.is_valid():
+        user_obj = form.save(commit=False)
+        password = form.cleaned_data.get("password")
+        user_obj.is_active = False
+        user_obj.save()
+        user_obj.set_password(password)
+        user_obj.save()
+        # send email confirmation
+        # user_obj.active = False
+        return redirect("/login")
+    return render(request, "accounts/register.html", {"form": form})

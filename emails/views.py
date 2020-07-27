@@ -26,6 +26,9 @@ def email_entry_get_view(request, id=None, *args, **kwargs):
 #     return
 
 def email_entry_create_view(request, *args, **kwargs):
+    context = {}
+    if request.user.is_authenticated:
+        context['some_cool_stuff'] = "Whatever"
     print(request.user, request.user.is_authenticated) # is_authenticated()
     # if request.method == "POST":
     #        DONT DO THIS!
@@ -38,6 +41,7 @@ def email_entry_create_view(request, *args, **kwargs):
     #     obj = EmailEntry(**data)
     #     obj.save()
     form = EmailEntryForm(request.POST or None)
+    context['form'] = form
     if form.is_valid():
         '''
         obj = form.save(commit=False) # Model Instance
@@ -48,7 +52,7 @@ def email_entry_create_view(request, *args, **kwargs):
         form.save()        
         form = EmailEntryForm()
         # return HttpResponseRedirect(f"/email/{new_id}")
-    return render(request, "form.html", {"form": form})
+    return render(request, "form.html", context)
 
 # def email_entry_update_view():
 #     return
