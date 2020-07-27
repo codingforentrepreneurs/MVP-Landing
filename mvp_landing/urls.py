@@ -21,9 +21,13 @@ from django.conf.urls.static import static
 
 from django.urls import path, re_path
 
-from emails.views import email_entry_get_view
+from emails.views import (
+    email_entry_get_view,
+    email_entry_create_view
+)
 
 urlpatterns = [
+    path('', email_entry_create_view),
     path('email/<int:id>/', email_entry_get_view),
     # re_path(r'email/(?P<id>\d+)/$', email_entry_get_view),
     # url(r'email/(?P<id>\d+)/$', email_entry_get_view)
