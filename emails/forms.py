@@ -11,6 +11,14 @@ class EmailEntryUpdateForm(forms.ModelForm):
 
 
 class EmailEntryForm(forms.ModelForm):
+    email = forms.EmailField(label='',
+        widget=forms.EmailInput(
+            attrs={
+                "placeholder": "Your email",
+                "class": "form-control"
+            }
+        )
+    )
     class Meta:
         model = EmailEntry
         fields = ['email']

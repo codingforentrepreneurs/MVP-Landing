@@ -2,8 +2,22 @@
 
 
 {% block content %}
-    <h1>Hello world</h1>
-
-    {% include 'form.html' %}
+   
     
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6 mx-auto'> <!-- sm md lg xl --> <!-- 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 -->
+
+                <img src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60' class='img-fluid' />
+                  
+                <h1>MVP Landing</h1>
+                <p class='lead'> Welcome to MVP landing. We hope you launch your project or idea this way!</p>
+                {% if added %}
+                    <div class='alert alert-warning'>Thank you for joining, we'll be in touch!</div>
+                {% endif %}
+                {% include 'form.html' %}
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

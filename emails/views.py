@@ -57,6 +57,8 @@ def email_entry_create_view(request, *args, **kwargs):
         '''
         form.save()        
         form = EmailEntryForm()
+        context['added'] = True
+        context['form'] = form
         # return HttpResponseRedirect(f"/email/{new_id}")
     return render(request, "home.html", context)
 
