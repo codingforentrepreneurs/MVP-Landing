@@ -27,7 +27,7 @@ def email_entry_get_view(request, id=None, *args, **kwargs):
         raise Http404
     # my_html = html_str.format(email=obj.email)
     # return HttpResponse(f"<h1>Hello {obj.email}</h1>")
-    return render(request, "get.html", {"object": obj, "email": "abc@gmail.com"})
+    return render(request, "emails/detail.html", {"object": obj, "email": "abc@gmail.com"})
 
 
 
@@ -58,7 +58,7 @@ def email_entry_create_view(request, *args, **kwargs):
         form.save()        
         form = EmailEntryForm()
         # return HttpResponseRedirect(f"/email/{new_id}")
-    return render(request, "form.html", context)
+    return render(request, "home.html", context)
 
 
 
