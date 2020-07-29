@@ -32,7 +32,7 @@ DEBUG = False
 MY_VAR = "this_is_awesome"
 API_KEY = os.environ.get("THIS_API_KEY")
 
-ALLOWED_HOSTS = [".herokuapp.com", ".herokuapps.com"]
+ALLOWED_HOSTS = [".mvplanding.com"]
 
 
 # Application definition
