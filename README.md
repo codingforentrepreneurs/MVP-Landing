@@ -45,3 +45,15 @@ This is a minimum viable landing page. Let's do this!
 [24 - Integrate Bootstrap & Django](../../tree/3b9675d62fa617c3cb021ac920af472c4b658f0a/)
 
 [25 - Deploy to Heroku](../../tree/f4d1b25f759919e102d594ddd760847be7d9ce2d/)
+
+
+### Next Steps:
+
+- [Configure Email in Django](https://kirr.co/4jopqw)
+- [eCommerce](https://kirr.co/dq71oy)
+- [Tweetme 2](https://kirr.co/w3dmiw)
+
+##### What are you working on? Let me know...
+
+- [@justinmitchel](https://twitter.com/justinmitchel)
+- [@joincfe](https://twitter.com/joincfe)
