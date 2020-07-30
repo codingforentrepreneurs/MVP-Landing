@@ -1,4 +1,6 @@
-# MVP Landing is coming Soon
+[![MVP Landing Logo](https://static.codingforentrepreneurs.com/media/projects/mvp-landing/images/share/MVP_Landing_-_Share.jpg)](https://www.codingforentrepreneurs.com/projects/mvp-landing)
+
+# MVP Landing
 
 Learn to build & deploy a MVP landing page using Django, Python, & Bootstrap. The tutorial series covers the Django basics using Django 3, Python 3.8, and Bootstrap 4.5.
 
