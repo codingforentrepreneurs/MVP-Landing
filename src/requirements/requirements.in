@@ -1,0 +1,4 @@
+django>=3.2.0,<4
+gunicorn
+dj-database-url
+psycopg2-binary

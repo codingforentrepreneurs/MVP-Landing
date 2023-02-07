@@ -29,8 +29,8 @@ DEBUG = True
 MY_VAR = "this_is_awesome"
 API_KEY = os.environ.get("THIS_API_KEY")
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [".mvplanding.com", '.cfe.sh', '.desalsa.io']
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 # Application definition
 
