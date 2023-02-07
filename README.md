@@ -8,6 +8,14 @@ Landing pages are excellent for building traction or testing an idea... both thi
 
 This is a minimum viable landing page. Let's do this!
 
+
+## Live Demo
+Updated in 2023. Review the [container](../../tree/container) branch if you want to see the live demo code.
+
+_[View the live demo](https://mvplanding.demo.cfe.sh)_
+
+
+## Lesson Code 
 [5 - Base Project & Virtual Environment](../../tree/ea373123ebb411ced32e764c01acce517ab78ad1/)
 
 [6 - Starting your Django Project](../../tree/884b7f059c6c115daee40b29697d4dfe3178ff1b/)
